@@ -16,3 +16,8 @@ The app will have a calorie counting feature which will be attached to a databas
 ## Planning Exercises
 
 Our App will plan exercises for the user at the beginning of the week automatically. The exercises will be selected based on the users preferences and equipment availability.
+
+## Features
+Profile Screen
+https://user-images.githubusercontent.com/80363181/167438708-c0ea6cfe-099f-4adb-bf01-19d4d0d93eae.mp4
+
