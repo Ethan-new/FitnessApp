@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./SigninScreen\";","map":{"version":3,"sources":["C:/Users/spart/Desktop/React App/fitnessapp/src/screens/SignInScreen/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from \"./SigninScreen\";\r\n\r\n"]},"metadata":{},"sourceType":"module"}

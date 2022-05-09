@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./ConfirmEmailScreen.js\";","map":{"version":3,"sources":["C:/Users/spart/Desktop/Capstone/NewApp/React App/fitnessapp/src/screens/ConfirmEmailScreen/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from \"./ConfirmEmailScreen.js\";\r\n\r\n"]},"metadata":{},"sourceType":"module"}

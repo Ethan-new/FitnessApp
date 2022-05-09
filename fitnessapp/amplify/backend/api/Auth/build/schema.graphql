@@ -1,0 +1,450 @@
+
+type Empty @aws_iam @aws_api_key {
+  id: ID!
+  asd: String
+  asds: String
+  asdasd: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type FoodItems @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  calperpound: String
+  extraInfo: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type DailyFoodItems @aws_iam @aws_api_key {
+  name: String
+  weight: String
+  calCount: String
+}
+
+type CalDays @aws_iam @aws_api_key {
+  Date: String
+  currCals: String
+  foodItems: [DailyFoodItems]
+  goalCals: String
+}
+
+type Cals @aws_iam @aws_api_key {
+  currTargetCals: String
+  allDays: [CalDays]
+}
+
+type Exercises {
+  name: String
+  videolink: String
+  numberOfReps: String
+  sets: String
+}
+
+type ExercisesStorage @aws_iam @aws_api_key {
+  id: ID!
+  name: String
+  numberOfReps: String
+  videolink: String
+  sets: String
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+type Week @aws_iam @aws_api_key {
+  weekStartDate: String
+  exercisesDays: [CalDays]
+}
+
+type Day {
+  Date: String
+  startTime: String
+  endTime: String
+  exercises: [Exercises]
+}
+
+type User @aws_iam @aws_api_key {
+  id: ID!
+  height: Int
+  weight: Int
+  gender: String
+  TrainingDayList: [Week]
+  numberOfPreferedExercises: Int
+  username: String
+  CalCount: Cals
+  createdAt: AWSDateTime!
+  updatedAt: AWSDateTime!
+  _version: Int!
+  _deleted: Boolean
+  _lastChangedAt: AWSTimestamp!
+}
+
+input ModelStringInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+input ModelIntInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelFloatInput {
+  ne: Float
+  eq: Float
+  le: Float
+  lt: Float
+  ge: Float
+  gt: Float
+  between: [Float]
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelBooleanInput {
+  ne: Boolean
+  eq: Boolean
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+}
+
+input ModelIDInput {
+  ne: ID
+  eq: ID
+  le: ID
+  lt: ID
+  ge: ID
+  gt: ID
+  contains: ID
+  notContains: ID
+  between: [ID]
+  beginsWith: ID
+  attributeExists: Boolean
+  attributeType: ModelAttributeTypes
+  size: ModelSizeInput
+}
+
+enum ModelAttributeTypes {
+  binary
+  binarySet
+  bool
+  list
+  map
+  number
+  numberSet
+  string
+  stringSet
+  _null
+}
+
+input ModelSizeInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  between: [Int]
+}
+
+enum ModelSortDirection {
+  ASC
+  DESC
+}
+
+type ModelEmptyConnection @aws_api_key @aws_iam {
+  items: [Empty]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelEmptyFilterInput {
+  id: ModelIDInput
+  asd: ModelStringInput
+  asds: ModelStringInput
+  asdasd: ModelStringInput
+  and: [ModelEmptyFilterInput]
+  or: [ModelEmptyFilterInput]
+  not: ModelEmptyFilterInput
+}
+
+type Query {
+  getEmpty(id: ID!): Empty @aws_api_key @aws_iam
+  listEmpties(filter: ModelEmptyFilterInput, limit: Int, nextToken: String): ModelEmptyConnection @aws_api_key @aws_iam
+  syncEmpties(filter: ModelEmptyFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelEmptyConnection @aws_api_key @aws_iam
+  getFoodItems(id: ID!): FoodItems @aws_api_key @aws_iam
+  listFoodItems(filter: ModelFoodItemsFilterInput, limit: Int, nextToken: String): ModelFoodItemsConnection @aws_api_key @aws_iam
+  syncFoodItems(filter: ModelFoodItemsFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelFoodItemsConnection @aws_api_key @aws_iam
+  getExercisesStorage(id: ID!): ExercisesStorage @aws_api_key @aws_iam
+  listExercisesStorages(filter: ModelExercisesStorageFilterInput, limit: Int, nextToken: String): ModelExercisesStorageConnection @aws_api_key @aws_iam
+  syncExercisesStorages(filter: ModelExercisesStorageFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelExercisesStorageConnection @aws_api_key @aws_iam
+  getUser(id: ID!): User @aws_api_key @aws_iam
+  listUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String): ModelUserConnection @aws_api_key @aws_iam
+  syncUsers(filter: ModelUserFilterInput, limit: Int, nextToken: String, lastSync: AWSTimestamp): ModelUserConnection @aws_api_key @aws_iam
+}
+
+input ModelEmptyConditionInput {
+  asd: ModelStringInput
+  asds: ModelStringInput
+  asdasd: ModelStringInput
+  and: [ModelEmptyConditionInput]
+  or: [ModelEmptyConditionInput]
+  not: ModelEmptyConditionInput
+}
+
+input CreateEmptyInput {
+  id: ID
+  asd: String
+  asds: String
+  asdasd: String
+  _version: Int
+}
+
+input UpdateEmptyInput {
+  id: ID!
+  asd: String
+  asds: String
+  asdasd: String
+  _version: Int
+}
+
+input DeleteEmptyInput {
+  id: ID!
+  _version: Int
+}
+
+type Mutation {
+  createEmpty(input: CreateEmptyInput!, condition: ModelEmptyConditionInput): Empty @aws_api_key @aws_iam
+  updateEmpty(input: UpdateEmptyInput!, condition: ModelEmptyConditionInput): Empty @aws_api_key @aws_iam
+  deleteEmpty(input: DeleteEmptyInput!, condition: ModelEmptyConditionInput): Empty @aws_api_key @aws_iam
+  createFoodItems(input: CreateFoodItemsInput!, condition: ModelFoodItemsConditionInput): FoodItems @aws_api_key @aws_iam
+  updateFoodItems(input: UpdateFoodItemsInput!, condition: ModelFoodItemsConditionInput): FoodItems @aws_api_key @aws_iam
+  deleteFoodItems(input: DeleteFoodItemsInput!, condition: ModelFoodItemsConditionInput): FoodItems @aws_api_key @aws_iam
+  createExercisesStorage(input: CreateExercisesStorageInput!, condition: ModelExercisesStorageConditionInput): ExercisesStorage @aws_api_key @aws_iam
+  updateExercisesStorage(input: UpdateExercisesStorageInput!, condition: ModelExercisesStorageConditionInput): ExercisesStorage @aws_api_key @aws_iam
+  deleteExercisesStorage(input: DeleteExercisesStorageInput!, condition: ModelExercisesStorageConditionInput): ExercisesStorage @aws_api_key @aws_iam
+  createUser(input: CreateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  updateUser(input: UpdateUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+  deleteUser(input: DeleteUserInput!, condition: ModelUserConditionInput): User @aws_api_key @aws_iam
+}
+
+type Subscription {
+  onCreateEmpty: Empty @aws_subscribe(mutations: ["createEmpty"]) @aws_api_key @aws_iam
+  onUpdateEmpty: Empty @aws_subscribe(mutations: ["updateEmpty"]) @aws_api_key @aws_iam
+  onDeleteEmpty: Empty @aws_subscribe(mutations: ["deleteEmpty"]) @aws_api_key @aws_iam
+  onCreateFoodItems: FoodItems @aws_subscribe(mutations: ["createFoodItems"]) @aws_api_key @aws_iam
+  onUpdateFoodItems: FoodItems @aws_subscribe(mutations: ["updateFoodItems"]) @aws_api_key @aws_iam
+  onDeleteFoodItems: FoodItems @aws_subscribe(mutations: ["deleteFoodItems"]) @aws_api_key @aws_iam
+  onCreateExercisesStorage: ExercisesStorage @aws_subscribe(mutations: ["createExercisesStorage"]) @aws_api_key @aws_iam
+  onUpdateExercisesStorage: ExercisesStorage @aws_subscribe(mutations: ["updateExercisesStorage"]) @aws_api_key @aws_iam
+  onDeleteExercisesStorage: ExercisesStorage @aws_subscribe(mutations: ["deleteExercisesStorage"]) @aws_api_key @aws_iam
+  onCreateUser: User @aws_subscribe(mutations: ["createUser"]) @aws_api_key @aws_iam
+  onUpdateUser: User @aws_subscribe(mutations: ["updateUser"]) @aws_api_key @aws_iam
+  onDeleteUser: User @aws_subscribe(mutations: ["deleteUser"]) @aws_api_key @aws_iam
+}
+
+type ModelFoodItemsConnection @aws_api_key @aws_iam {
+  items: [FoodItems]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelFoodItemsFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  calperpound: ModelStringInput
+  extraInfo: ModelStringInput
+  and: [ModelFoodItemsFilterInput]
+  or: [ModelFoodItemsFilterInput]
+  not: ModelFoodItemsFilterInput
+}
+
+input ModelFoodItemsConditionInput {
+  name: ModelStringInput
+  calperpound: ModelStringInput
+  extraInfo: ModelStringInput
+  and: [ModelFoodItemsConditionInput]
+  or: [ModelFoodItemsConditionInput]
+  not: ModelFoodItemsConditionInput
+}
+
+input CreateFoodItemsInput {
+  id: ID
+  name: String
+  calperpound: String
+  extraInfo: String
+  _version: Int
+}
+
+input UpdateFoodItemsInput {
+  id: ID!
+  name: String
+  calperpound: String
+  extraInfo: String
+  _version: Int
+}
+
+input DeleteFoodItemsInput {
+  id: ID!
+  _version: Int
+}
+
+type ModelExercisesStorageConnection @aws_api_key @aws_iam {
+  items: [ExercisesStorage]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelExercisesStorageFilterInput {
+  id: ModelIDInput
+  name: ModelStringInput
+  numberOfReps: ModelStringInput
+  videolink: ModelStringInput
+  sets: ModelStringInput
+  and: [ModelExercisesStorageFilterInput]
+  or: [ModelExercisesStorageFilterInput]
+  not: ModelExercisesStorageFilterInput
+}
+
+input ModelExercisesStorageConditionInput {
+  name: ModelStringInput
+  numberOfReps: ModelStringInput
+  videolink: ModelStringInput
+  sets: ModelStringInput
+  and: [ModelExercisesStorageConditionInput]
+  or: [ModelExercisesStorageConditionInput]
+  not: ModelExercisesStorageConditionInput
+}
+
+input CreateExercisesStorageInput {
+  id: ID
+  name: String
+  numberOfReps: String
+  videolink: String
+  sets: String
+  _version: Int
+}
+
+input UpdateExercisesStorageInput {
+  id: ID!
+  name: String
+  numberOfReps: String
+  videolink: String
+  sets: String
+  _version: Int
+}
+
+input DeleteExercisesStorageInput {
+  id: ID!
+  _version: Int
+}
+
+input WeekInput {
+  weekStartDate: String
+  exercisesDays: [CalDaysInput]
+}
+
+input CalDaysInput {
+  Date: String
+  currCals: String
+  foodItems: [DailyFoodItemsInput]
+  goalCals: String
+}
+
+input DailyFoodItemsInput {
+  name: String
+  weight: String
+  calCount: String
+}
+
+input CalsInput {
+  currTargetCals: String
+  allDays: [CalDaysInput]
+}
+
+type ModelUserConnection @aws_api_key @aws_iam {
+  items: [User]!
+  nextToken: String
+  startedAt: AWSTimestamp
+}
+
+input ModelUserFilterInput {
+  id: ModelIDInput
+  height: ModelIntInput
+  weight: ModelIntInput
+  gender: ModelStringInput
+  numberOfPreferedExercises: ModelIntInput
+  username: ModelStringInput
+  and: [ModelUserFilterInput]
+  or: [ModelUserFilterInput]
+  not: ModelUserFilterInput
+}
+
+input ModelUserConditionInput {
+  height: ModelIntInput
+  weight: ModelIntInput
+  gender: ModelStringInput
+  numberOfPreferedExercises: ModelIntInput
+  username: ModelStringInput
+  and: [ModelUserConditionInput]
+  or: [ModelUserConditionInput]
+  not: ModelUserConditionInput
+}
+
+input CreateUserInput {
+  id: ID
+  height: Int
+  weight: Int
+  gender: String
+  TrainingDayList: [WeekInput]
+  numberOfPreferedExercises: Int
+  username: String
+  CalCount: CalsInput
+  _version: Int
+}
+
+input UpdateUserInput {
+  id: ID!
+  height: Int
+  weight: Int
+  gender: String
+  TrainingDayList: [WeekInput]
+  numberOfPreferedExercises: Int
+  username: String
+  CalCount: CalsInput
+  _version: Int
+}
+
+input DeleteUserInput {
+  id: ID!
+  _version: Int
+}
+

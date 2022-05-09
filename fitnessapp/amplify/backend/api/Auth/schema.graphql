@@ -1,0 +1,70 @@
+type Empty @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  asd: String
+  asds: String
+  asdasd: String
+}
+
+type FoodItems @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  calperpound: String
+  extraInfo: String
+}
+
+type DailyFoodItems {
+  name: String
+  weight: String
+  calCount: String
+}
+
+type CalDays {
+  Date: String
+  currCals: String
+  foodItems: [DailyFoodItems]
+  goalCals: String
+}
+
+type Cals {
+  currTargetCals: String
+  allDays: [CalDays]
+}
+
+type Exercises {
+  name: String
+  videolink: String
+  numberOfReps: String
+  sets: String
+}
+
+type ExercisesStorage @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  numberOfReps: String
+  videolink: String
+  sets: String
+}
+
+type Week {
+  weekStartDate: String
+  exercisesDays: [CalDays]
+}
+
+type Day {
+  Date: String
+  startTime: String
+  endTime: String
+  exercises: [Exercises]
+}
+
+type User @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  height: Int
+  weight: Int
+  gender: String
+  TrainingDayList: [Week]
+  numberOfPreferedExercises: Int
+  username: String
+  CalCount: Cals
+}
+ 

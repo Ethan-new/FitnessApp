@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./ModifyScreen.js\";","map":{"version":3,"sources":["C:/Users/spart/Desktop/Capstone/NewApp/React App/fitnessapp/src/screens/ModifyScreen/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from \"./ModifyScreen.js\";\r\n\r\n"]},"metadata":{},"sourceType":"module"}

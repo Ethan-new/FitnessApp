@@ -1,0 +1,12 @@
+{
+  "resourceName": "s3authstoraged1w0vvuxna4okh",
+  "bucketName": "auth-storage-d1w0vvuxna4okh",
+  "policyUUID": "0cdba2f8",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}

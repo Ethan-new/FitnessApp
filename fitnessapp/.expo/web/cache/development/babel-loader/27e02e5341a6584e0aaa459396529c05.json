@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./CustomTile.js\";","map":{"version":3,"sources":["C:/Users/spart/Documents/GitHub/FitnessApp/fitnessapp/src/componets/CustomTile/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from './CustomTile.js'"]},"metadata":{},"sourceType":"module"}

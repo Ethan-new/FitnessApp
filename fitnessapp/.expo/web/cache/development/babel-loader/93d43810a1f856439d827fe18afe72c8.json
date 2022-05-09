@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./UserProfileScreen.js\";","map":{"version":3,"sources":["C:/Users/spart/Documents/GitHub/FitnessApp/fitnessapp/src/screens/UserProfileScreen/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from \"./UserProfileScreen.js\";\r\n"]},"metadata":{},"sourceType":"module"}

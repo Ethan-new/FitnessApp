@@ -1,0 +1,1 @@
+{"ast":null,"code":"export { default } from \"./CustomInput.js\";","map":{"version":3,"sources":["C:/Users/spart/Desktop/React App/fitnessapp/src/componets/CustomButton/index.js"],"names":["default"],"mappings":"AAAA,SAAQA,OAAR","sourcesContent":["export {default} from './CustomInput.js'"]},"metadata":{},"sourceType":"module"}
