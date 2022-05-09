@@ -20,7 +20,7 @@ Our App will plan exercises for the user at the beginning of the week automatica
 ## Features:
 ### Workout Planner
 https://user-images.githubusercontent.com/80363181/167443337-06448434-15ff-4842-96b3-523d2f1b69c5.mp4
-###Calorie Counter
+### Calorie Counter
 https://user-images.githubusercontent.com/80363181/167443299-27fde05f-f856-44f8-9c41-7ea84d906a7d.mp4
 ### Profile Edit Screen
 https://user-images.githubusercontent.com/80363181/167438708-c0ea6cfe-099f-4adb-bf01-19d4d0d93eae.mp4
